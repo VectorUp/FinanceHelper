@@ -36,7 +36,7 @@ public class RightActivity extends AppCompatActivity{
 
         dlgCreation = new DialogActivity();
 
-        rv = (RecyclerView)findViewById(R.id.rv);
+        rv = (RecyclerView)findViewById(R.id.rvHistory);
         manager = new LinearLayoutManager(this);
         rv.setLayoutManager(manager);
         initializeData();
@@ -44,24 +44,6 @@ public class RightActivity extends AppCompatActivity{
         rv.setAdapter(adapter);
     }
 
-    public void onCommitClick(View view) {
-        EditText editTotal = (EditText) findViewById(R.id.totalNumber);
-        EditText editDays = (EditText) findViewById(R.id.totalDays);
-        EditText editEconomy = (EditText) findViewById(R.id.totalEconomy);
-
-        int total = ValueCheck(editTotal);
-        int days = ValueCheck(editDays);
-        int economy = ValueCheck(editEconomy);
-        int per_day = 0;
-
-        if (days != 0) per_day = (total-economy)/days;
-
-        Intent intent = new Intent(RightActivity.this, MainActivity.class);
-        intent.putExtra("per_day", String.valueOf(per_day) + " gr");
-        intent.putExtra("total", String.valueOf(total) + " gr");
-        intent.putExtra("days", String.valueOf(days)+ " days");
-        startActivity(intent);
-    }
 
     public void onClick(View view) {
         dlgCreation.show(getFragmentManager(), "dlgCreation");

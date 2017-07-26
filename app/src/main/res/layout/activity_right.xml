@@ -5,7 +5,7 @@
     android:id="@+id/activity_right"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/fon"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -14,90 +14,58 @@
 
 
     <EditText
-        android:id="@+id/totalNumber"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/left_field"
+        android:id="@+id/TextCena"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:background="@drawable/kategorii"
         android:ems="10"
         android:gravity="center"
-        android:hint="Введите общую сумму"
+        android:hint="Цена"
         android:inputType="number"
-        android:maxLength="9"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@color/cardview_light_background"
+        android:textColorHint="@color/cardview_light_background"
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/totalDays"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/totalNumber"
-        android:layout_below="@+id/totalNumber"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/left_field"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Введите кол-во дней"
-        android:inputType="number"
-        android:maxLength="3" />
-
-    <EditText
-        android:id="@+id/totalEconomy"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/totalDays"
-        android:layout_below="@+id/totalDays"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/left_field"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Введите кол-во экономии"
-        android:inputType="number"
-        android:maxLength="9" />
-
-    <Button
-        android:id="@+id/commitButton"
+        android:id="@+id/TextKategoryG"
         android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_above="@+id/rv"
-        android:layout_centerHorizontal="true"
-        android:onClick="onCommitClick"
-        android:text="Готово" />
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/TextCena"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:background="@drawable/kategorii"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Категория"
+        android:inputType="number"
+        android:textColor="@color/cardview_light_background"
+        android:textColorHint="@color/cardview_light_background"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/addNewButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignTop="@+id/totalEconomy"
-        android:layout_marginLeft="12dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="90dp"
-        android:layout_toEndOf="@+id/totalEconomy"
-        android:layout_toRightOf="@+id/totalEconomy"
         android:background="@android:drawable/ic_input_add"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/buttonLeft2"
         android:layout_width="70dp"
         android:layout_height="150dp"
-        android:layout_alignTop="@+id/totalNumber"
-        android:layout_toLeftOf="@+id/totalNumber"
-        android:layout_toStartOf="@+id/totalNumber"
-        android:background="@drawable/left_direct1" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="match_parent"
-        android:layout_height="175sp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/addNewButton"
-        android:layout_marginTop="18dp"
-        android:layout_toEndOf="@+id/buttonLeft2"
-        android:background="@drawable/left_mission"
-        android:padding="10dp">
-
-    </android.support.v7.widget.RecyclerView>
+        android:background="@drawable/strelkavpravo"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/TextCena"
+        android:layout_alignStart="@+id/TextCena" />
 
 </RelativeLayout>
