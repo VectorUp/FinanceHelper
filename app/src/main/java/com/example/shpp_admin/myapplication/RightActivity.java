@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 public class RightActivity extends AppCompatActivity{
 
-    private String number;
     DialogFragment dlgCreation;
 
     SharedPreferences sharedPreferences;
@@ -35,8 +34,6 @@ public class RightActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_right);
 
-        number = getIntent().getStringExtra("class");
-
         dlgCreation = new DialogActivity();
 
         rv = (RecyclerView)findViewById(R.id.rv);
@@ -48,25 +45,21 @@ public class RightActivity extends AppCompatActivity{
     }
 
     public void onCommitClick(View view) {
-        EditText total = (EditText) findViewById(R.id.totalNumber);
-        EditText days = (EditText) findViewById(R.id.totalDays);
+        EditText editTotal = (EditText) findViewById(R.id.totalNumber);
+        EditText editDays = (EditText) findViewById(R.id.totalDays);
+        EditText editEconomy = (EditText) findViewById(R.id.totalEconomy);
 
-        String totalString = total.getText().toString();
-        String daysString = days.getText().toString();
+        int total = ValueCheck(editTotal);
+        int days = ValueCheck(editDays);
+        int economy = ValueCheck(editEconomy);
+        int per_day = 0;
 
-        int totalInt, daysInt;
-        if (totalString.equals("")) totalInt = 0;
-        else totalInt = Integer.parseInt(totalString);
-        if (daysString.equals("")) daysInt = 0;
-        else daysInt = Integer.parseInt(daysString);
-
-        if (daysInt > 0)
-            number = String.valueOf(totalInt/daysInt);
-        else
-            number = "empty";
+        if (days != 0) per_day = (total-economy)/days;
 
         Intent intent = new Intent(RightActivity.this, MainActivity.class);
-        intent.putExtra("class", number);
+        intent.putExtra("per_day", String.valueOf(per_day) + " gr");
+        intent.putExtra("total", String.valueOf(total) + " gr");
+        intent.putExtra("days", String.valueOf(days)+ " days");
         startActivity(intent);
     }
 
@@ -91,6 +84,12 @@ public class RightActivity extends AppCompatActivity{
             MissionStrings missionStrings = gson.fromJson(mission, MissionStrings.class);
             missions.add(missionStrings);
         }
+    }
+
+    private int ValueCheck (EditText editText) {
+        String string = editText.getText().toString();
+        if (string.equals("")) return 0;
+        else return Integer.parseInt(string);
     }
 
 
