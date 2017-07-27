@@ -1,11 +1,11 @@
 package com.example.shpp_admin.myapplication;
 
 public class HistoryStrings {
-    String value;
     String name;
+    String value;
 
-    public HistoryStrings(String value, String name) {
-        this.value = value;
+    public HistoryStrings(String name, String value) {
         this.name = name;
+        this.value = value;
     }
 }

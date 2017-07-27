@@ -14,7 +14,7 @@
 
 
     <EditText
-        android:id="@+id/editText6"
+        android:id="@+id/editTotal"
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -23,12 +23,12 @@
         android:textStyle="bold"
         android:textColor="@color/cardview_light_background"
         android:layout_marginBottom="26dp"
-        android:layout_above="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_above="@+id/editDays"
+        android:layout_alignLeft="@+id/editDays"
+        android:layout_alignStart="@+id/editDays" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editDays"
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -36,14 +36,13 @@
         android:ems="10"
         android:textStyle="bold"
         android:textColor="@color/cardview_light_background"
-        android:layout_above="@+id/editText7"
-        android:layout_alignLeft="@+id/editText7"
-        android:layout_alignStart="@+id/editText7"
+        android:layout_above="@+id/editEconomy"
+        android:layout_alignLeft="@+id/editEconomy"
+        android:layout_alignStart="@+id/editEconomy"
         android:layout_marginBottom="27dp" />
-    " />
 
     <EditText
-        android:id="@+id/editText7"
+        android:id="@+id/editEconomy"
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
@@ -61,5 +60,14 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/strelkavlevo" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_below="@+id/editEconomy"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:id="@+id/buttonCommit" />
 
 </RelativeLayout>

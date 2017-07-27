@@ -68,10 +68,21 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvHistory"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/history"></android.support.v7.widget.RecyclerView>
+        android:background="@drawable/history">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:onClick="onCleanClick"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/buttonClean" />
 
 </RelativeLayout>

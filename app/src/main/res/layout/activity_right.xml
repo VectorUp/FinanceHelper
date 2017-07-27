@@ -10,54 +10,33 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.shpp_admin.myapplication.RightActivity">
+    tools:context="com.example.shpp_admin.myapplication.RightActivity"
+    android:orientation="vertical">
 
 
     <EditText
-        android:id="@+id/TextCena"
+        android:id="@+id/editValue"
         android:layout_width="100dp"
-        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="29dp"
         android:layout_marginStart="29dp"
-        android:background="@drawable/kategorii"
         android:ems="10"
-        android:gravity="center"
-        android:hint="Цена"
+        android:hint="Затраты"
         android:inputType="number"
-        android:textColor="@color/cardview_light_background"
-        android:textColorHint="@color/cardview_light_background"
-        android:textStyle="bold" />
+        style="@style/spending_texts"/>
 
     <EditText
-        android:id="@+id/TextKategoryG"
+        android:id="@+id/editCategory"
         android:layout_width="150dp"
-        android:layout_height="40dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/TextCena"
+        android:layout_alignTop="@+id/editValue"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
-        android:background="@drawable/kategorii"
-        android:ems="10"
-        android:gravity="center"
-        android:hint="Категория"
-        android:inputType="number"
-        android:textColor="@color/cardview_light_background"
-        android:textColorHint="@color/cardview_light_background"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/addNewButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@android:drawable/ic_input_add"
-        android:onClick="onClick"
-        android:layout_below="@+id/TextKategoryG"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:hint="Название"
+        style="@style/spending_texts" />
 
     <ImageButton
         android:id="@+id/buttonLeft2"
@@ -65,7 +44,34 @@
         android:layout_height="150dp"
         android:background="@drawable/strelkavpravo"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/TextCena"
-        android:layout_alignStart="@+id/TextCena" />
+        android:layout_alignLeft="@+id/editValue"
+        android:layout_alignStart="@+id/editValue" />
+
+    <ImageButton
+        android:layout_below="@+id/editCategory"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/kategorii"
+        android:id="@+id/buttonAdd"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="13dp"/>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="120dp"
+        android:layout_height="125dp"
+        android:layout_below="@+id/buttonAdd"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="27dp">
+    </ListView>
+
+    <TextView
+        android:layout_width="50dp"
+        android:text="OK"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/listView"
+        android:layout_toStartOf="@+id/listView"
+        android:id="@+id/buttonOK"
+        style="@style/spending_texts"/>
 
 </RelativeLayout>

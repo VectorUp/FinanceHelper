@@ -7,34 +7,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.shpp_admin.myapplication.MissionStrings;
-
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        CardView cv;
-        TextView missionCategory;
-        TextView missionName;
-        TextView missionValue;
-        TextView missionDeadline;
+        CardView cvHistory;
+        TextView historyName;
+        TextView historyValue;
 
         ViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cv);
-            missionCategory = (TextView)itemView.findViewById(R.id.textCategory);
-            missionName = (TextView)itemView.findViewById(R.id.textName);
-            missionValue = (TextView)itemView.findViewById(R.id.textValue);
-            missionDeadline = (TextView)itemView.findViewById(R.id.textDeadline);
+            cvHistory = (CardView)itemView.findViewById(R.id.cvHistory);
+            historyName = (TextView)itemView.findViewById(R.id.valueName);
+            historyValue = (TextView)itemView.findViewById(R.id.valueValue);
         }
     }
 
-    List<MissionStrings> missions;
+    List<HistoryStrings> histories;
 
-    RecyclerAdapter(List<MissionStrings> missions) {
-        this.missions = missions;
+    RecyclerAdapter(List<HistoryStrings> histories) {
+        this.histories = histories;
     }
 
     @Override
@@ -44,21 +38,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.histories_item, viewGroup, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.missionCategory.setText(missions.get(position).category);
-        holder.missionName.setText(missions.get(position).name);
-        holder.missionValue.setText(missions.get(position).value);
-        holder.missionDeadline.setText(missions.get(position).deadline);
+        holder.historyName.setText(histories.get(position).name);
+        holder.historyValue.setText(histories.get(position).value);
     }
 
     @Override
     public int getItemCount() {
-        return missions.size();
+        return histories.size();
     }
 }
