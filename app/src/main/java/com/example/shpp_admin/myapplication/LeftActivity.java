@@ -42,7 +42,7 @@ public class LeftActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton buttonCommit = (ImageButton) findViewById(R.id.buttonCommit);
+        TextView buttonCommit = (TextView) findViewById(R.id.buttonCommit);
         buttonCommit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +70,8 @@ public class LeftActivity extends AppCompatActivity {
 
                 editor.putString("MAIN_NUMBERS", numbersString);
                 editor.apply();
+
+                editTotal.setText(""); editDays.setText(""); editEconomy.setText("");
             }
         });
     }
