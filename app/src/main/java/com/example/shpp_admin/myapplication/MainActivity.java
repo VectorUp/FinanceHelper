@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         if (!string.equals(""))
             mainNumbers = gson.fromJson(string, MainNumbers.class);
         else
-            mainNumbers = new MainNumbers("1 gr", "1 gr", "1 days", 0);
+            mainNumbers = new MainNumbers("0 gr", "0 gr", "0 days", 0);
 
         // Вывод чисел на MainActivity
         TextView textPerDay = (TextView) findViewById(R.id.textPerDay);

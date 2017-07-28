@@ -1,5 +1,6 @@
 package com.example.shpp_admin.myapplication;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -59,7 +60,16 @@ public class RightActivity extends AppCompatActivity{
             }
         });
 
-        TextView buttonOK = (TextView) findViewById(R.id.buttonOK);
+        ImageButton buttonBack = (ImageButton) findViewById(R.id.buttonBack);
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RightActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final TextView buttonOK = (TextView) findViewById(R.id.buttonOK);
         buttonOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,16 +92,18 @@ public class RightActivity extends AppCompatActivity{
                 sharedPreferences = getSharedPreferences("MAIN_NUMBERS", MODE_PRIVATE);
                 editor = sharedPreferences.edit();
                 String mainNumbersString = sharedPreferences.getString("MAIN_NUMBERS", "");
-                MainNumbers mainNumbers = gson.fromJson(mainNumbersString, MainNumbers.class);
+                if (!mainNumbersString.equals("")) {
+                    MainNumbers mainNumbers = gson.fromJson(mainNumbersString, MainNumbers.class);
 
-                mainNumbers.numberTotal = String.valueOf(Integer.parseInt(mainNumbers.numberTotal)
-                        - totalSpending);
-                mainNumbers.numberPerDay = String.valueOf(Integer.parseInt(mainNumbers.numberPerDay)
-                        - totalSpending);
+                    mainNumbers.numberTotal = String.valueOf(Integer.parseInt(mainNumbers.numberTotal)
+                            - totalSpending);
+                    mainNumbers.numberPerDay = String.valueOf(Integer.parseInt(mainNumbers.numberPerDay)
+                            - totalSpending);
 
-                mainNumbersString = gson.toJson(mainNumbers, MainNumbers.class);
-                editor.putString("MAIN_NUMBERS", mainNumbersString);
-                editor.apply();
+                    mainNumbersString = gson.toJson(mainNumbers, MainNumbers.class);
+                    editor.putString("MAIN_NUMBERS", mainNumbersString);
+                    editor.apply();
+                }
 
                 spendings.clear();
                 adapter.notifyDataSetChanged();

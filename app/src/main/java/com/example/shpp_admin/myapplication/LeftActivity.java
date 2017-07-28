@@ -56,20 +56,20 @@ public class LeftActivity extends AppCompatActivity {
                 int total = ValueCheck(editTotal);
                 int days = ValueCheck(editDays);
                 int economy = ValueCheck(editEconomy);
+                int perday = 0;
 
-                MainNumbers mainNumbers = new MainNumbers(String.valueOf((total-economy)/days),
-                        String.valueOf(total), String.valueOf(days),(total-economy)/days);
+                if (days == 0)
+                    perday = 0;
+                else
+                    perday = (total-economy)/days;
+
+                MainNumbers mainNumbers = new MainNumbers(String.valueOf(perday),
+                        String.valueOf(total), String.valueOf(days), perday);
                 Gson gson = new GsonBuilder().create();
                 String numbersString = gson.toJson(mainNumbers, MainNumbers.class);
 
                 editor.putString("MAIN_NUMBERS", numbersString);
                 editor.apply();
-
-                timer = new Timer();
-                mTimerTask = new MyTimerTask();
-                if (days > 0) {
-                    timer.schedule(mTimerTask, 3000, 3000);
-                }
             }
         });
     }
@@ -78,20 +78,5 @@ public class LeftActivity extends AppCompatActivity {
         String string = editText.getText().toString();
         if (string.equals("")) return 0;
         else return Integer.parseInt(string);
-    }
-
-    class MyTimerTask extends TimerTask {
-        @Override
-        public void run() {
-
-            //final String valueDays = String.valueOf(Integer.parseInt(textDays.getText().toString()) - 1);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    //textDays.setText("Hello world");
-                    editText.setText("0");
-                }
-            });
-        }
     }
 }

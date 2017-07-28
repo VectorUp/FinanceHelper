@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="100dp"
+    android:layout_width="150dp"
     android:layout_height="40dp"
     android:textSize="15dp"
     android:gravity="center"
     android:textColor="@color/cardview_light_background"
     android:textStyle="bold"
-    android:background="@drawable/right_input_field"
+    android:background="@drawable/right_name_field"
     />

@@ -10,7 +10,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.shpp_admin.myapplication.LeftActivity">
+    tools:context="com.example.shpp_admin.myapplication.LeftActivity"
+    android:focusableInTouchMode="false" android:isScrollContainer="false">
 
 
     <EditText
@@ -18,7 +19,7 @@
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:background="@drawable/left_input_field"
+        android:background="@drawable/left_total"
         android:ems="10"
         android:textStyle="bold"
         android:textColor="@color/cardview_light_background"
@@ -32,7 +33,7 @@
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:background="@drawable/left_input_field"
+        android:background="@drawable/left_days"
         android:ems="10"
         android:textStyle="bold"
         android:textColor="@color/cardview_light_background"
@@ -46,7 +47,7 @@
         style="@style/edit_text_style"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:background="@drawable/left_input_field"
+        android:background="@drawable/left_economy"
         android:ems="10"
         android:textColor="@color/cardview_light_background"
         android:textStyle="bold"
