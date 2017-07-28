@@ -5,7 +5,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main"
+    android:background="@drawable/main_background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.shpp_admin.myapplication.MainActivity">
@@ -14,7 +14,7 @@
         android:id="@+id/buttonLeft"
         android:layout_width="40dp"
         android:layout_height="100dp"
-        android:background="@drawable/strelkavpravo"
+        android:background="@drawable/direction_right"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp"
         android:layout_alignTop="@+id/rvHistory"
@@ -25,7 +25,7 @@
         android:id="@+id/buttonRight"
         android:layout_width="40dp"
         android:layout_height="100dp"
-        android:background="@drawable/strelkavlevo"
+        android:background="@drawable/direction_left"
         android:layout_alignTop="@+id/rvHistory"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -40,7 +40,7 @@
         android:layout_above="@+id/textDays"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/sumasumadayday"
+        android:background="@drawable/main_input_field"
         android:ems="10" />
 
     <TextView
@@ -48,7 +48,7 @@
         style="@style/edit_text_style"
         android:layout_width="110dp"
         android:layout_height="43dp"
-        android:background="@drawable/sumasumadayday"
+        android:background="@drawable/main_input_field"
         android:ems="10"
         android:layout_marginBottom="23dp"
         android:layout_above="@+id/textPerDay"
@@ -60,7 +60,7 @@
         android:layout_width="110dp"
         android:layout_height="43dp"
         android:layout_marginBottom="79dp"
-        android:background="@drawable/sumasumadayday"
+        android:background="@drawable/main_input_field"
         android:ems="10"
         android:layout_above="@+id/rvHistory"
         android:layout_alignLeft="@+id/textTotal"
@@ -72,7 +72,7 @@
         android:layout_height="400dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/history">
+        android:background="@drawable/main_history">
 
     </android.support.v7.widget.RecyclerView>
 

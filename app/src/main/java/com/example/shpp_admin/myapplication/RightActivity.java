@@ -22,6 +22,7 @@ public class RightActivity extends AppCompatActivity{
     SharedPreferences.Editor editor;
 
     ArrayList<HistoryStrings> historyStringses;
+    int totalSpending = 0;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class RightActivity extends AppCompatActivity{
                     HistoryStrings historyStrings = new HistoryStrings(editCategory.getText().toString(),
                             editValue.getText().toString());
                     historyStringses.add(historyStrings);
+                    totalSpending += Integer.parseInt(historyStrings.value);
 
                     String spending = editCategory.getText().toString() + " " + editValue.getText().toString();
                     spendings.add(spending);
@@ -76,6 +78,20 @@ public class RightActivity extends AppCompatActivity{
                     editor.putString(HISTORIES, historyString);
                     editor.apply();
                 }
+
+                sharedPreferences = getSharedPreferences("MAIN_NUMBERS", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                String mainNumbersString = sharedPreferences.getString("MAIN_NUMBERS", "");
+                MainNumbers mainNumbers = gson.fromJson(mainNumbersString, MainNumbers.class);
+
+                mainNumbers.numberTotal = String.valueOf(Integer.parseInt(mainNumbers.numberTotal)
+                        - totalSpending);
+                mainNumbers.numberPerDay = String.valueOf(Integer.parseInt(mainNumbers.numberPerDay)
+                        - totalSpending);
+
+                mainNumbersString = gson.toJson(mainNumbers, MainNumbers.class);
+                editor.putString("MAIN_NUMBERS", mainNumbersString);
+                editor.apply();
 
                 spendings.clear();
                 adapter.notifyDataSetChanged();

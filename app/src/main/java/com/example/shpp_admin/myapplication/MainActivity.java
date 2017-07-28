@@ -18,7 +18,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -57,6 +59,40 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM");
+        String strDate = simpleDateFormat.format(calendar.getTime());
+
+        sharedPreferences = getSharedPreferences("DATE", MODE_PRIVATE);
+        SharedPreferences.Editor editor;
+
+        if (!sharedPreferences.getString("DATE", "").equals(strDate)) {
+            if (!sharedPreferences.getString("DATE", "").equals("")) {
+
+                sharedPreferences = getSharedPreferences("MAIN_NUMBERS", MODE_PRIVATE);
+                editor = sharedPreferences.edit();
+                Gson gson = new GsonBuilder().create();
+
+                String string = sharedPreferences.getString("MAIN_NUMBERS", "");
+
+                MainNumbers mainNumbersOld = gson.fromJson(string, MainNumbers.class);
+                MainNumbers mainNumbersNew = new MainNumbers(
+                        String.valueOf(Integer.parseInt(mainNumbersOld.numberPerDay)
+                        + mainNumbersOld.valuePerDay),
+                        mainNumbersOld.numberTotal,
+                        String.valueOf(Integer.parseInt(mainNumbersOld.numberDays) - 1),
+                        mainNumbersOld.valuePerDay);
+
+                string = gson.toJson(mainNumbersNew, MainNumbers.class);
+                editor.putString("MAIN_NUMBERS", string);
+                editor.apply();
+            }
+            sharedPreferences = getSharedPreferences("DATE", MODE_PRIVATE);
+            editor = sharedPreferences.edit();
+            editor.putString("DATE", strDate);
+            editor.apply();
+        }
     }
 
     @Override
@@ -72,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         if (!string.equals(""))
             mainNumbers = gson.fromJson(string, MainNumbers.class);
         else
-            mainNumbers = new MainNumbers("1 gr", "1 gr", "1 days");
+            mainNumbers = new MainNumbers("1 gr", "1 gr", "1 days", 0);
 
         // Вывод чисел на MainActivity
         TextView textPerDay = (TextView) findViewById(R.id.textPerDay);

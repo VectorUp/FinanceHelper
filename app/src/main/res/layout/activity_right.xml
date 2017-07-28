@@ -5,7 +5,7 @@
     android:id="@+id/activity_right"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
+    android:background="@drawable/right_background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -42,7 +42,7 @@
         android:id="@+id/buttonLeft2"
         android:layout_width="70dp"
         android:layout_height="150dp"
-        android:background="@drawable/strelkavpravo"
+        android:background="@drawable/direction_right"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/editValue"
         android:layout_alignStart="@+id/editValue" />
@@ -51,7 +51,7 @@
         android:layout_below="@+id/editCategory"
         android:layout_width="150dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/kategorii"
+        app:srcCompat="@drawable/right_input_field"
         android:id="@+id/buttonAdd"
         android:layout_alignParentRight="true"
         android:layout_marginRight="13dp"/>

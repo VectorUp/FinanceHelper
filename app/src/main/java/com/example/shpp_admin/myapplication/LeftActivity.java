@@ -58,7 +58,7 @@ public class LeftActivity extends AppCompatActivity {
                 int economy = ValueCheck(editEconomy);
 
                 MainNumbers mainNumbers = new MainNumbers(String.valueOf((total-economy)/days),
-                        String.valueOf(total), String.valueOf(days));
+                        String.valueOf(total), String.valueOf(days),(total-economy)/days);
                 Gson gson = new GsonBuilder().create();
                 String numbersString = gson.toJson(mainNumbers, MainNumbers.class);
 
