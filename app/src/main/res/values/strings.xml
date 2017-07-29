@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Main Title</string>
+    <string name="app_name">Finance Helper</string>
     <string name="enter_text">Введите бюджет</string>
 
     <string name="dialog_mine">Creat new mission</string>

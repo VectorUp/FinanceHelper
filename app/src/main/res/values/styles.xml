@@ -1,11 +1,25 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MainTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryMain</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkMain</item>
+        <item name="colorAccent">@color/colorAccentMain</item>
+    </style>
+
+    <style name="LeftTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryLeft</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkLeft</item>
+        <item name="colorAccent">@color/colorAccentLeft</item>
+    </style>
+
+    <style name="RightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimaryRight</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkRight</item>
+        <item name="colorAccent">@color/colorAccentRight</item>
     </style>
 
     <style name="left_edit">
